@@ -12,7 +12,7 @@ const PaginaInicio = () => {
 
     useEffect(() => {
       (async () => {
-        const data = await fetch(`http://localhost:5000/testimonios`);
+        const data = await fetch(`https://app-restaurante-colnodo.herokuapp.com/testimonios`);
         const results = await data.json();
         setComments(results)
       })()

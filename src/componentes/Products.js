@@ -19,7 +19,7 @@ const Products = props => {
             setListItems(JSON.parse(data));
         }
         ( async () => {
-            const data = await fetch(`http://localhost:5000/productos`);
+            const data = await fetch(`https://app-restaurante-colnodo.herokuapp.com/productos`);
             const results = await data.json();
             setListMenu(results)
         })()
