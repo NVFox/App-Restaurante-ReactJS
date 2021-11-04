@@ -1,0 +1,145 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.carrito .nav-top{
+    background-color: transparent;
+    position: initial;
+}
+
+.carrito .buy-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.carrito .services{
+    height: fit-content;
+}
+
+.carrito .services-title{
+    height: 30vh;
+}
+
+.carrito .contenido_menu{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.carrito .flechas{
+    align-items: center;
+}
+
+.carrito .flechas a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fa3d06;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    padding: 10px;
+}
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.precio{
+    font-size: 2rem;
+    color: #56303d;
+    margin: 0;
+}
+
+.control-sect{
+    display: flex;
+}
+
+h3{
+    color: #56303d;
+    text-align: center;
+}
+
+.list-item .img{
+    width: 35%;
+    height: 100%;
+}
+
+.list-item .img img{
+    width: 100%;
+}
+
+.carrito .list-item .content{
+    width: 60%;
+}
+
+.list-item .content input{
+    width: 40px;
+}
+
+.list-item .content form input[type="text"]{
+    text-align: center;
+    font-weight: bold;
+}
+
+.list-item .content input[type="button"]{
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.list-item .control-sect button{
+    background-color: transparent;
+    border: none;
+    height: fit-content;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.total-section{
+    width: 22.5%;
+    background-color: rgba(128, 128, 128, 0.35);
+    padding: 0 15px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.total-section .content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-section p{
+    color: #56303d;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.total-section a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fa3d06;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    padding: 10px 0;
+}
+
+.not-found.hidden{
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+
+.btn2.active{
+    transition: all 300ms;
+    color: gray;
+}

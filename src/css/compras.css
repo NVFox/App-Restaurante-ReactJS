@@ -1,0 +1,107 @@
+.compras .services{
+    height: fit-content;
+}
+
+.compras .services-title{
+    height: 30vh;
+}
+
+.compras .contenido_menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.compras .flechas{
+    align-items: center;
+}
+
+.compras .list-item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.precio{
+    font-size: 2rem;
+    color: #56303d;
+    margin: 0;
+}
+
+h3{
+    color: #56303d;
+    text-align: center;
+}
+
+.compras .list-item .img{
+    width: 25%;
+    height: 100%;
+}
+
+.list-item .img img{
+    width: 100%;
+    height: 100%;
+}
+
+.compras .list-item .content{
+    width: 45%;
+}
+
+.list-item .buy-section{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list-item .quantity{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.form-cont{
+    display: flex;
+    justify-content: center;
+    transform: translateY(-2.5rem);
+}
+
+.quantity{
+    width: 100%;
+}
+
+.quantity input{
+    width: 15%;
+}
+
+.quantity input[type="text"]{
+    text-align: center;
+    font-weight: bold;
+}
+
+.quantity input[type="button"]{
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.quantity button{
+    width: 70%;
+    background-color: #fa3d06;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 0;
+}
+
+.quantity button i{
+    margin-right: 10px;
+}
+
+#liveAlertPlaceholder{
+    position: fixed;
+    right: 25px;
+    top: 25px;
+}

@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "imagen": "https://i.postimg.cc/Kkt7nH7L/menu5-2x.png",
+        "titulo": "Lorem ipsum dolor sit amet.",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut fugiat totam, temporibus ipsa nam laboriosam sit beatae minus deleniti quasi porro dolor consequatur, quis voluptate illo distinctio quo et, aliquam dolorum! Saepe, laborum at, aut dolorum magni eius voluptas officia molestiae numquam illo enim itaque consequatur aliquam error? Cumque, a.",
+        "precio": 25000
+    },
+    {
+        "id": 2,
+        "imagen": "https://i.postimg.cc/JshQ9KmV/menu1-2x.png",
+        "titulo": "Lorem ipsum dolor sit amet.",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut fugiat totam, temporibus ipsa nam laboriosam sit beatae minus deleniti quasi porro dolor consequatur, quis voluptate illo distinctio quo et, aliquam dolorum! Saepe, laborum at, aut dolorum magni eius voluptas officia molestiae numquam illo enim itaque consequatur aliquam error? Cumque, a.",
+        "precio": 25000
+    },
+    {
+        "id": 3,
+        "imagen": "https://i.postimg.cc/dhS9vdt7/menu2-2x.png",
+        "titulo": "Lorem ipsum dolor sit amet.",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut fugiat totam, temporibus ipsa nam laboriosam sit beatae minus deleniti quasi porro dolor consequatur, quis voluptate illo distinctio quo et, aliquam dolorum! Saepe, laborum at, aut dolorum magni eius voluptas officia molestiae numquam illo enim itaque consequatur aliquam error? Cumque, a.",
+        "precio": 25000
+    },
+    {
+        "id": 4,
+        "imagen": "https://i.postimg.cc/XZRcBb54/menu3-2x.png",
+        "titulo": "Lorem ipsum dolor sit amet.",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut fugiat totam, temporibus ipsa nam laboriosam sit beatae minus deleniti quasi porro dolor consequatur, quis voluptate illo distinctio quo et, aliquam dolorum! Saepe, laborum at, aut dolorum magni eius voluptas officia molestiae numquam illo enim itaque consequatur aliquam error? Cumque, a.",
+        "precio": 25000
+    },
+    {
+        "id": 5,
+        "imagen": "https://i.postimg.cc/f3tfbLJ8/menu4-2x.png",
+        "titulo": "Lorem ipsum dolor sit amet.",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut fugiat totam, temporibus ipsa nam laboriosam sit beatae minus deleniti quasi porro dolor consequatur, quis voluptate illo distinctio quo et, aliquam dolorum! Saepe, laborum at, aut dolorum magni eius voluptas officia molestiae numquam illo enim itaque consequatur aliquam error? Cumque, a.",
+        "precio": 25000
+    },
+    {
+        "id": 6,
+        "imagen": "https://i.postimg.cc/Kkt7nH7L/menu5-2x.png",
+        "titulo": "Lorem ipsum dolor sit amet.",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut fugiat totam, temporibus ipsa nam laboriosam sit beatae minus deleniti quasi porro dolor consequatur, quis voluptate illo distinctio quo et, aliquam dolorum! Saepe, laborum at, aut dolorum magni eius voluptas officia molestiae numquam illo enim itaque consequatur aliquam error? Cumque, a.",
+        "precio": 25000
+    }
+]

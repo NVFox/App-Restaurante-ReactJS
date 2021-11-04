@@ -1,0 +1,179 @@
+/*Header*/
+
+header{
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 7vh;
+}
+
+ul, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1, h2{
+    color: #56303d;
+}
+
+.nav-top{
+    display: flex;
+    margin:auto;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-top a{
+    color: white;
+}
+
+.main-navbar{
+    margin-left: auto;
+    display: flex;
+}
+
+.header-logo{
+    width: 20%;
+}
+
+.header-logo img{
+    width: 15vw;
+    transform: translateY(0.2rem);
+}
+
+header ul{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.main-navbar li{
+    margin-left: 5rem;
+}
+
+/* Cuerpo y Seccion*/
+.section{
+    display: flex;
+    flex-direction: row;
+}
+#izq{
+    position:absolute;
+    width:500px;
+    height:453px; 
+    margin:25px 10px 25px 50px;
+
+}
+
+  
+.reservar img{
+    width: 270px;
+    height: 170px;
+
+}
+.img_reservar1  img {
+    left:780px;
+    right:1000px;
+    bottom:300px;
+    margin:20px auto;
+   
+}
+  
+
+#der{
+    position:relative;
+    left:50%;
+    width:500px;
+    height:473px; 
+    margin:25px 10px 25px 50px;
+}
+#der input{
+    margin: 8px 5px 5px 5px;
+    background: #DFD9D9;
+}
+#der .btn-group{
+    margin:5px 5px 5px 5px;
+    
+}
+.form-check-label{
+    color:#310101;
+    font-style: italic;
+}
+.btn{
+    position:relative;
+    left:200px;
+}
+.form-select{
+    position:sticky;
+    background: #DFD9D9;
+}
+.btn-group{
+    background: #DFD9D9;
+}
+#der #indicapers{
+    margin:5px;
+    background: #DFD9D9;
+}
+
+
+body{
+    color: #310101;
+
+}
+
+.btn{
+    background: #F13110;
+    border-color: #F13110;
+    align-items: center;
+
+}
+
+/*Footer*/
+footer{
+    display:flex;
+    background: #310101;
+    align-items: center;
+    height: 50vh;
+    justify-content: center;
+}
+
+footer a, footer p{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+footer a:hover{
+    color: white;
+}
+
+footer ul, footer li{
+    list-style: none;
+    padding: 0;
+}
+
+.foot-logo{
+    width: 25%;
+}
+
+.foot-logo img{
+    width: 80%;
+}
+
+footer .contact{
+    width: 35%;
+}
+
+.foot-menu ul{
+    display: inline-flex;
+}
+
+.foot-menu li{
+    margin-right: 2em;
+}
+
+footer .info > p{
+    margin-bottom: 0;
+}
+
