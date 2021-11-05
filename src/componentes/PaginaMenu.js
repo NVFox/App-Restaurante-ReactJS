@@ -18,7 +18,7 @@ class PaginaMenu extends Component {
                 <div className="services-title">
                     <h1>Menú</h1>
                 </div>
-                <Products articles={this.props.articles} />
+                <Products />
                 <div className="flechas">
                     <div className="anterior">
                         <a href="/nosotros"><i className="fas fa-arrow-left"></i></a>

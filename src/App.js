@@ -14,10 +14,8 @@ class App extends Component {
         <Router>
             <Route exact path="/" component={PaginaInicio} />
             <Route path="/carrito" component={PaginaCarrito} />
-            <Route path="/menu" render={() => (
-              <PaginaMenu articles={this.state.articles} />
-            )} />
-            <Route path="/panel/:type" render={ControlPanel} />
+            <Route path="/menu" component={PaginaMenu} />
+            <Route path="/panel/:type" component={ControlPanel} />
             <Route path="/mapa" render={mapa} />
         </Router>
     )
