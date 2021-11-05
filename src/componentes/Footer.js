@@ -14,7 +14,7 @@ class Footer extends Component {
                     <div className="foot-menu">
                         <nav>
                             <ul>
-                                <li><a href="/maps">MAPA DEL SITIO</a></li>
+                                <li><a href="/mapa">MAPA DEL SITIO</a></li>
                                 <li><a href="/contactanos">CONTÁCTANOS</a></li>
                                 <li><a href="/reservas">RESERVAS</a></li>
                             </ul>

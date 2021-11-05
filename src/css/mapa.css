@@ -1,0 +1,22 @@
+
+h1{
+    font-size: 70px;
+    bottom:50px;
+    margin: 45px 100px 100px 100px;
+}
+h6{
+    font-size:20px;
+}
+
+.text{
+    text-decoration: none;
+    color: #310101;
+}
+
+.abs-inline{
+    position: relative;
+    font-size:20px;
+    line-height:2.5;
+    margin: 25px 3px 100px 100px;
+    display:flex;
+}
