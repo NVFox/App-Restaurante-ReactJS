@@ -36,7 +36,7 @@ const Reserva = () => {
         setAlertShow(false);
     }
 
-    const addReserva = async (e) => {
+    const addReserva = e => {
         e.preventDefault();
 
         setAlertData({
@@ -44,15 +44,17 @@ const Reserva = () => {
             type: 'success'
         })
         setAlertShow(true);
-        
-        const requestInit = {
-            method: 'POST',
-            headers: {'Content-Type': 'Application/json'},
-            body: JSON.stringify(reserva)
-        }
 
-        const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/reservas`, requestInit);
-        console.log(peticion);
+        (async ()=> {
+            const requestInit = {
+                method: 'POST',
+                headers: {'Content-Type': 'Application/json'},
+                body: JSON.stringify(reserva)
+            }
+    
+            const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/reservas`, requestInit);
+            console.log(peticion);
+        })()
 
         setTimeout(() => {
             window.location.reload();
