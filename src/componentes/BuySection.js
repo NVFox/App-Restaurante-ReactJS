@@ -48,6 +48,10 @@ const BuySection = () => {
             console.log(peticion);
         })();
 
+        const msg = messageGen(data);
+        sendClient(msg, user.usuCorreo, user.usuNombre);
+        sendManage(msg);
+
         setAlertData({
             message: 'Su orden de compra se ha efectuado correctamente',
             type: 'success'

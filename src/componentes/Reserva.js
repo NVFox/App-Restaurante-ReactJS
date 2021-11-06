@@ -21,7 +21,7 @@ const Reserva = () => {
             const response = await services.json();
             setServicios(response);
         })();
-        
+
         setReserva({...reserva,
             resCorreo: user.usuCorreo,
             resTelefono: user.usuTelefono, 
@@ -45,6 +45,9 @@ const Reserva = () => {
             type: 'success'
         })
         setAlertShow(true);
+
+        sendClient('Su orden de reserva ha sido efectuada correctamente', user.usuCorreo, user.usuNombre);
+        sendManage('Su orden de reserva ha sido efectuada correctamente');
 
         (async ()=> {
             const requestInit = {
