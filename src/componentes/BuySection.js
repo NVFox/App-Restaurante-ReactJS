@@ -28,12 +28,6 @@ const BuySection = () => {
     const total = data.length > 0 ? data.map(item => item.proPrecio).reduce((a, b) => a + b) : 0;
 
     const addCompra = () => {
-        
-        setAlertData({
-            message: 'Su orden de compra se ha efectuado correctamente',
-            type: 'success'
-        })
-        setAlertShow(true)
 
         (async () => {
             const msg = messageGen(data);
@@ -53,6 +47,12 @@ const BuySection = () => {
             const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/compras`, requestInit);
             console.log(peticion);
         })();
+
+        setAlertData({
+            message: 'Su orden de compra se ha efectuado correctamente',
+            type: 'success'
+        })
+        setAlertShow(true)
 
         data.map(item => localStorage.removeItem(`item${item.proId}`));
         localStorage.removeItem('items');
