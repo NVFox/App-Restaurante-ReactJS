@@ -44,17 +44,7 @@ const PaginaServicios = () => {
                     </div>
                 </div>
                 <div className="services-pics">
-                    {services.length > 0 && services.map(item => <Service item={item} />)}
-                </div>
-                <div className="flechas">
-                    <div className="anterior">
-                        <a href="/nosotros"><i className="fas fa-arrow-left"></i></a>
-                        <a href="/nosotros"> Anterior</a>
-                    </div>
-                    <div className="siguiente">
-                        <a href="/nosotros">Siguiente  </a>
-                        <a href="/servicios"><i className="fas fa-arrow-right"></i></a>
-                    </div>
+                    {services.length > 0 && services.map(item => <Service key={item.serId} item={item} />)}
                 </div>
             </section>
             <Footer />

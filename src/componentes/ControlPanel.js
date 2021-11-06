@@ -153,6 +153,7 @@ export const ControlPanel = () => {
         <Fragment>
             {user 
                 ?   (<div>
+                        {user.usuRol === "Administrador" ? window.location.replace("https://app-restaurante-reactjs.herokuapp.com/panel/usuarios") :  window.location.replace("https://app-restaurante-reactjs.herokuapp.com/panel/compras") }
                         <div className="d-flex align-items-center bg-dark" style={{height: "70px"}} >
                             <a href="/">
                                 <img src={logo} className="mx-4" alt="logo-restaurante" style={{width: "200px"}} />
