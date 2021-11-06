@@ -43,14 +43,14 @@ const Navbar = props => {
                                             <a href="/panel/usuarios" id="btnlogin">
                                                 <i className="fas fa-user"></i>
                                             </a>
-                                            <a href="/panel/usuarios">{user.usuNombre}</a>
+                                            <a href="/panel/usuarios" className="mx-3">{user.usuNombre}</a>
                                             <button type="button" className="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
                                         </Fragment>  
                                     :   <Fragment>
                                             <a href="/panel/compras" id="btnlogin">
                                                 <i className="fas fa-user"></i>
                                             </a>
-                                            <a href="/panel/compras">{user.usuNombre}</a>
+                                            <a href="/panel/compras" className="mx-3">{user.usuNombre}</a>
                                             <button type="button" className="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
                                         </Fragment>)
                             :   <a href="/login" id="btnlogin">

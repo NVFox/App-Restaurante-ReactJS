@@ -4,6 +4,7 @@ import Footer from './Footer';
 import { Alert } from './Alert';
 
 import '../css/form-compra.css'
+import '../css/pagmenu.css'
 
 const FormLogin = () => {
 
