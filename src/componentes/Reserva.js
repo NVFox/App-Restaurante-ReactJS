@@ -3,11 +3,14 @@ import '../css/contacres.css';
 import '../css/pagmenu.css';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Alert } from "./Alert";
 
 const Reserva = () => {
 
     const [reserva, setReserva] = useState({});
     const [servicios, setServicios] = useState([])
+    const [alertData, setAlertData] = useState({})
+    const [alertShow, setAlertShow] = useState(false)
 
     const user = JSON.parse(localStorage.getItem('user'));
 
@@ -21,6 +24,10 @@ const Reserva = () => {
 
     const handleChange = (e) => {
         setReserva({...reserva, [e.target.name]: e.target.value})
+    }
+
+    const handleAlert = () => {
+        setAlertShow(false);
     }
 
     const addReserva = async (e) => {
@@ -41,6 +48,19 @@ const Reserva = () => {
         const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/reservas`, requestInit);
         const response = await peticion.json();
         console.log(response)
+
+        sendClient('Su orden de reserva ha sido procesada correctamente', user.usuCorreo, user.usuNombre);
+        sendManage('Una nueva orden de reserva ha sido procesada correctamente');
+
+        setAlertData({
+            message: 'Su orden de reserva se ha efectuado correctamente',
+            type: 'success'
+        })
+        setAlertShow(true)
+
+        setTimeout(() => {
+            setAlertShow(false);
+        }, 3000);
     }
 
     return(
@@ -55,7 +75,7 @@ const Reserva = () => {
                             <h1>Reserva Ya</h1>
             
                             <div className="form-group">
-                                <input type="text" class="form-control" id="name" name="resNom" placeholder="Nombre Completo" onChange={e => handleChange(e)} required/>
+                                <input type="text" class="form-control" id="name" name="resNombre" placeholder="Nombre Completo" onChange={e => handleChange(e)} required/>
                             </div>
                             
                             <div className="btn-group">
@@ -78,9 +98,16 @@ const Reserva = () => {
                                 <input type="checkbox" class="check" id="check" required/>
                                 <label className="form-check-label" for="check">Acepto Términos y condiciones</label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Reservar</button>
+                            <button type="submit" class="btn btn-primary btncenter">Reservar</button>
                         </form>
                         </section>
+                        <div id="liveAlertPlaceholder">
+                            {alertShow ? 
+                            (<div>
+                                <Alert alerts={alertData} reset={handleAlert} />
+                            </div> ) : 
+                            (<div></div>) }
+                        </div>
                     <Footer />
                     </div> 
                     : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login' }

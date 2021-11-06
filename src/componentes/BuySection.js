@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { messageGen } from '../functionsSendMail/functions';
+import { messageGen, sendClient, sendManage } from '../functionsSendMail/functions';
+import { Alert } from './Alert';
 
 import '../css/carrito.css';
 
@@ -9,6 +10,8 @@ const BuySection = () => {
      
     const [lstorage, setLstorage] = useState([]);
     const [user, setUser] = useState(null);
+    const [alertData, setAlertData] = useState({})
+    const [alertShow, setAlertShow] = useState(false)
 
     useEffect(() => {
         let data = localStorage.getItem('items');
@@ -25,8 +28,10 @@ const BuySection = () => {
     const total = data.length > 0 ? data.map(item => item.proPrecio).reduce((a, b) => a + b) : 0;
 
     const addCompra = async () => {
+        const msg = messageGen(data)
+
         const compra = {
-            comDescripcion: messageGen(data),
+            comDescripcion: msg,
             comPrecio: total,
             usuId: user.usuId
         }
@@ -40,6 +45,26 @@ const BuySection = () => {
         const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/compras`, requestInit);
         const response = await peticion.json();
         console.log(response)
+
+        sendClient(msg, user.usuCorreo, user.usuNombre);
+        sendManage(msg);
+
+        data.map(item => localStorage.removeItem(`item${item.proId}`));
+        localStorage.removeItem('items');
+
+        setAlertData({
+            message: 'Su orden de compra se ha efectuado correctamente',
+            type: 'success'
+        })
+        setAlertShow(true)
+
+        setTimeout(() => {
+            setAlertShow(false);
+        }, 3000);
+    }
+
+    const handleAlert = () => {
+        setAlertShow(false);
     }
     
     const DelItem = key => {
@@ -86,6 +111,13 @@ const BuySection = () => {
                     <p id="precio-total">{total}</p>
                 </div>
                 {user ? <button type="button" onClick={() => addCompra()}>PAGAR AHORA</button> : <a href="/login">PAGAR AHORA</a>}
+            </div>
+            <div id="liveAlertPlaceholder">
+                {alertShow ? 
+                (<div>
+                    <Alert alerts={alertData} reset={handleAlert} />
+                </div> ) : 
+                (<div></div>) }
             </div>
         </div>
     )

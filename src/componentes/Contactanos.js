@@ -45,7 +45,7 @@ const Contactanos = () => {
                     <label className="form-check-label" for="check">Acepto Términos y condiciones</label>
                 </div>
                 <div className="btn-group1">
-                   <button type="submit" className="btn btn-primary">ENVIAR</button>
+                   <button type="submit" className="btn btn-primary btncenter">ENVIAR</button>
                 </div>
             </form>
             </section>

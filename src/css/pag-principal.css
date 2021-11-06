@@ -35,9 +35,8 @@
 
 .main-navbar{
     display: flex;
-    margin-left: auto ;
-    width: 60%;
     height: 7vh;
+    margin-left: 5rem;
 }
 
 .main-navbar a{
