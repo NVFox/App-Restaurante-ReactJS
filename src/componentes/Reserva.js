@@ -19,13 +19,14 @@ const Reserva = () => {
         (async() => {
             const services = await fetch(`https://app-restaurante-colnodo.herokuapp.com/servicios`);
             const response = await services.json();
-            setServicios(response)
-        })()
+            setServicios(response);
+        })();
+        
         setReserva({...reserva,
             resCorreo: user.usuCorreo,
             resTelefono: user.usuTelefono, 
             usuId: user.usuId
-        })
+        });
     }, [])
 
     const handleChange = (e) => {
@@ -73,30 +74,30 @@ const Reserva = () => {
                             <h1>Reserva Ya</h1>
             
                             <div className="form-group">
-                                <input type="text" class="form-control" id="name" name="resNombre" placeholder="Nombre Completo" onChange={e => handleChange(e)} required/>
+                                <input type="text" className="form-control" id="name" name="resNombre" placeholder="Nombre Completo" onChange={e => handleChange(e)} required/>
                             </div>
                             
                             <div className="btn-group">
                                 <select className="form-select" id="selectres" name="resServicio" onChange={e => handleChange(e)} required>
-                                    <option selected value="">Seleccione el servicio</option>
+                                    <option value="">Seleccione el servicio</option>
                                     {servicios.map(item => <option value={item.serTitulo}>{item.serTitulo}</option>)}
                                 </select>
                             </div>
                             <div>
                                 <input type="number" className="form-control" id="numpers"  name="resPersonas" placeholder="Número de Personas" min="1" max="15" onChange={e => handleChange(e)} required/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                <input type="date" className="form-control" id="fecha" name="resFecha" onChange={e => handleChange(e)} required/>
                             </div>
             
-                            <div class="form-group">
+                            <div className="form-group">
                                 <textarea className="form-control" rows="5" id="indicapers" name="resIndicadores" placeholder="Indicaciones especiales" onChange={e => handleChange(e)} required></textarea>
                             </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="check" id="check" required/>
-                                <label className="form-check-label" for="check">Acepto Términos y condiciones</label>
+                            <div className="form-check">
+                                <input type="checkbox" className="check" id="check" required/>
+                                <label className="form-check-label" htmlFor="check">Acepto Términos y condiciones</label>
                             </div>
-                            <button type="submit" class="btn btn-primary btncenter">Reservar</button>
+                            <button type="submit" className="btn btn-primary btncenter">Reservar</button>
                         </form>
                         </section>
                     <Footer />

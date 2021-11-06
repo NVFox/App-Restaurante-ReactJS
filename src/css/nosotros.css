@@ -47,8 +47,6 @@
 .team{
     background-color: rgba(211, 211, 211, 0.911);
     width: 100%;
-    height: 50em;
-    margin-top: 6em;
 }
 .team2{
     margin-top: 9em;
@@ -96,13 +94,7 @@
 }
 .columna1{
     margin-bottom: 30px;
-}
-
-.comments{
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-    
+}   
 
 .comments .carousel-item{
     height: 30vh;

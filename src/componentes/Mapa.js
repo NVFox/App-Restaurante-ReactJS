@@ -53,7 +53,7 @@ const Mapa = () => {
 
                 <ul className="col-2 list-unstyled">
                     <li><a href="/contactanos" className="font-weight-bold  text-uppercase text">
-                        <h6 className="">CONTÁCTENOS</h6>
+                        <h6>CONTÁCTENOS</h6>
                     </a></li>
                 </ul>
 

@@ -10,7 +10,8 @@ export const usuarios = {
 export const servicios = {
     serId: 0,
     serTitulo: '',
-    serDescripcion: ''
+    serDescripcion: '',
+    serImagen: ''
 }
 
 export const productos = {

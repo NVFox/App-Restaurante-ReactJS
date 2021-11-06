@@ -56,6 +56,7 @@ const BuySection = () => {
 
         data.map(item => localStorage.removeItem(`item${item.proId}`));
         localStorage.removeItem('items');
+        setLstorage([]);
     }
 
     const handleAlert = () => {
