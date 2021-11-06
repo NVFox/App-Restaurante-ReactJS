@@ -4,15 +4,17 @@ import img from '../img/insumos/personal1@2x.png';
 import img1 from '../img/insumos/personal2@2x.png';
 import img2 from '../img/insumos/personal3@2x.png';
 import test1 from '../img/insumos/testimonio1@2x.png';
-import Header from "./Header";
+import Footer from "./Header";
 import Navbar from "./Navbar";
 import '../css/nosotros.css';
 import '../css/pagmenu.css';
 
 const Nosotros = () => {
     return (
-        <div className="m-0 row AppN">
-        <Header />
+        <div className="m-0 row AppN menu">
+        <header>
+            <Navbar estado={true} />
+        </header>
             <section className="main-content">
                 <div className="eee">
                     <img id="restaurante" src={imgoficial} alt="" />

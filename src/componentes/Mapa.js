@@ -1,13 +1,15 @@
 import React from "react";
 import '../css/mapa.css';
 import '../css/pagmenu.css'
-import Header from "./Header";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Mapa = () => {
     return (
-        <div className="AppM">
-            <Header />
+        <div className="AppM menu">
+            <header>
+                <Navbar estado={true} />
+            </header>
             <h1>Mapa del sitio</h1>
             <section className="abs-inline">
                 <ul className="col-3 list-unstyled">

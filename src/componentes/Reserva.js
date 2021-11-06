@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import '../css/contacres.css';
 import '../css/pagmenu.css';
-import Header from "./Header";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Reserva = () => {
@@ -46,8 +46,10 @@ const Reserva = () => {
     return(
         <Fragment>
             {user
-                ?   <div className="AppC">
-                    <Header />
+                ?   <div className="AppC menu">
+                    <header>
+                        <Navbar estado={true} />
+                    </header>
                         <section id="der">
                         <form onSubmit={e => addReserva(e)} >
                             <h1>Reserva Ya</h1>

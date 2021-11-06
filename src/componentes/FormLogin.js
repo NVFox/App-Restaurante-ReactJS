@@ -68,7 +68,7 @@ const FormLogin = () => {
         <Fragment>
             {user 
                 ? window.history.back()
-                : <div className="form-login">
+                : <div className="form-login menu">
                 <header>
                     <Navbar estado={true} />
                 </header>

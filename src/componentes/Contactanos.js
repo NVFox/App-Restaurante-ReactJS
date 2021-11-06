@@ -1,11 +1,15 @@
 import React from "react";
 import '../css/contacres.css';
 import '../css/pagmenu.css';
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const Contactanos = () => {
     return(
-        <div className="m-0 row AppC">
-            
+        <div className="m-0 row AppC menu">
+            <header>
+                <Navbar estado={true} />
+            </header>
             <section id="der">
             <h1>Contactenos</h1>
             <form className="form">
@@ -45,6 +49,7 @@ const Contactanos = () => {
                 </div>
             </form>
             </section>
+            <Footer />
         </div>
 
     );

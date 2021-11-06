@@ -174,7 +174,7 @@ export const ControlPanel = () => {
                                 :   <Fragment>
                                         <a href="/panel/compras" className="mx-3 text-white">Compras</a>
                                         <a href="/panel/reservas" className="mx-3 text-white">Reservas</a>
-                                        <div className="justify-self-right">
+                                        <div className="justify-self-end">
                                             <a href="/panel/compras" id="btnlogin">
                                                 <i className="fas fa-user"></i>
                                             </a>
