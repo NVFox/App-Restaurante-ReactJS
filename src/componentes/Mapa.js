@@ -1,6 +1,6 @@
 import React from "react";
 import '../css/mapa.css';
-
+import '../css/pagmenu.css'
 
 const Mapa = () => {
     return (

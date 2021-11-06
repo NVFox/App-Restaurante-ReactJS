@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import * as sample from '../sample/tables';
 import logo from '../img/insumos/logo2@2x.png'
 import { useParams } from 'react-router';
+import { closeSession } from '../functionsSendMail/functions';
 
 export const ControlPanel = () => {
 
@@ -162,10 +163,24 @@ export const ControlPanel = () => {
                                         <a href="/panel/servicios" className="mx-3 text-white">Servicios</a>
                                         <a href="/panel/productos" className="mx-3 text-white">Productos</a>
                                         <a href="/panel/testimonios" className="mx-3 text-white">Testimonios</a>
+                                        <div className="justify-self-right">
+                                            <a href="/panel/usuarios" id="btnlogin">
+                                                <i className="fas fa-user"></i>
+                                            </a>
+                                            <a href="/panel/usuarios" style={{marginLeft: '5px', marginRight: '5px'}}>{user.usuNombre}</a>
+                                            <button type="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
+                                        </div>
                                     </Fragment>
                                 :   <Fragment>
                                         <a href="/panel/compras" className="mx-3 text-white">Compras</a>
                                         <a href="/panel/reservas" className="mx-3 text-white">Reservas</a>
+                                        <div className="justify-self-right">
+                                            <a href="/panel/compras" id="btnlogin">
+                                                <i className="fas fa-user"></i>
+                                            </a>
+                                            <a href="/panel/compras" style={{marginLeft: '5px', marginRight: '5px'}}>{user.usuNombre}</a>
+                                            <button type="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
+                                        </div>
                                     </Fragment>
                             }
                         </div>

@@ -5,6 +5,7 @@ import img1 from '../img/insumos/personal2@2x.png';
 import img2 from '../img/insumos/personal3@2x.png';
 import test1 from '../img/insumos/testimonio1@2x.png';
 import '../css/nosotros.css';
+import '../css/pagmenu.css';
 
 const Nosotros = () => {
     return (

@@ -58,7 +58,7 @@ const FormLogin = () => {
 
                 setTimeout(() => {
                     window.history.back();
-                }, 3000);
+                }, 1000);
             }
         })()
     }

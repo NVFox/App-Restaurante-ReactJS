@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import img from '../img/insumos/logo2@2x.png';
+import { closeSession } from '../functionsSendMail/functions';
 
 const Navbar = props => {
     
@@ -48,7 +49,8 @@ const Navbar = props => {
                                             <a href="/panel/compras" id="btnlogin">
                                                 <i className="fas fa-user"></i>
                                             </a>
-                                            <a href="/panel/compras">{user.usuNombre}</a>
+                                            <a href="/panel/compras" style={{marginLeft: '5px', marginRight: '5px'}}>{user.usuNombre}</a>
+                                            <button type="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
                                         </Fragment>)
                             :   <a href="/login" id="btnlogin">
                                     <i className="fas fa-user"></i>

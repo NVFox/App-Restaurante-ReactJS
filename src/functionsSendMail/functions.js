@@ -1,20 +1,14 @@
 export const messageGen = data => {
-    var msg = "";
+    let msg = "";
 
-    for (let item of data){
-
-        let keys = Object.keys(item);
-
-        msg += `Artículo ${(data.indexOf(item)) + 1}\n\n`
-
-        for (let j = 0; j < keys.length; j++){
-            if (keys[j] !== 'usuId' && keys[j] !== 'usuImagen'){
-                msg += `${keys[j]} = ${item[keys[j]]}`;
-                msg += `\n`;
-            }
-        }
-
-        msg += `\n`;
+    for (const item of data){
+        msg += `Descripción ${(data.indexOf(item)) + 1} : ${data.proDescripcion}. `
     }
+
     return msg;
+}
+
+export const closeSession = () => {
+    localStorage.removeItem('user');
+    window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login';
 }

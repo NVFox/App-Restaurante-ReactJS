@@ -7,6 +7,8 @@ const Product = props => {
     const [alertData, setAlertData] = useState({});
     const [alertShow, setAlertShow] = useState(false);
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     const updateCounter = e => setCounter(e.target.value);
 
     const plusCounter = () => setCounter(counter + 1);
@@ -34,7 +36,7 @@ const Product = props => {
             props.callback(added, true, '');
 
             setAlertData({
-                message: `Se ha añadido ${added.proTitulo} al carrito (Cantidad: ${added.proCantidad}). Se han agregado ${localStorage.length - 1} artículos al carrito`,
+                message: `Se ha añadido ${added.proTitulo} al carrito (Cantidad: ${added.proCantidad}). Se han agregado ${user ? localStorage.length - 2 : localStorage.length - 1} artículos al carrito`,
                 type: "success"
             })
 

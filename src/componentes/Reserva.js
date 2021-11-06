@@ -1,20 +1,16 @@
 import React, { useState, useEffect, Fragment } from "react";
 import '../css/contacres.css';
-
+import '../css/pagmenu.css';
 
 const Reserva = () => {
 
-    const [user, setUser] = useState(null);
     const [reserva, setReserva] = useState({});
     const [servicios, setServicios] = useState([])
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     useEffect(() => {
         (async() => {
-            const data = localStorage.getItem('user')
-            if (data !== null) {
-                setUser(JSON.parse(data))
-            }
-
             const services = await fetch(`https://app-restaurante-colnodo.herokuapp.com/servicios`);
             const response = await services.json();
             setServicios(response)
@@ -50,7 +46,7 @@ const Reserva = () => {
             {user
                 ?   <div className="AppC">
                         <section id="der">
-                        <form>
+                        <form onSubmit={e => addReserva(e)} >
                             <h1>Reserva Ya</h1>
             
                             <div className="form-group">

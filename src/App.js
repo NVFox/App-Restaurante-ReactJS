@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import Navbar from './componentes/Navbar';
+import Footer from './componentes/Footer';
 import PaginaInicio from './componentes/PaginaInicio';
 import PaginaCarrito from './componentes/PaginaCarrito';
 import PaginaMenu from './componentes/PaginaMenu';
@@ -19,10 +21,42 @@ class App extends Component {
             <Route path="/carrito" component={PaginaCarrito} />
             <Route path="/menu" component={PaginaMenu} />
             <Route path="/panel/:type" component={ControlPanel} />
-            <Route path="/mapa" component={Mapa} />
-            <Route path="/contactanos" component={Contactanos} />
-            <Route path="/reservas" component={Reserva} />
-            <Route path="/login" component={FormLogin} />
+            <Route path="/mapa" render={() => {
+              <Fragment>
+                <header>
+                    <Navbar estado={true} />
+                </header>
+                <Mapa />
+                <Footer />
+              </Fragment>
+            }} />
+            <Route path="/contactanos" render={() => {
+              <Fragment>
+                <header>
+                    <Navbar estado={true} />
+                </header>
+                <Contactanos />
+                <Footer />
+              </Fragment>
+            }} />
+            <Route path="/reservas" render={() => {
+              <Fragment>
+                <header>
+                    <Navbar estado={true} />
+                </header>
+                <Reserva />
+                <Footer />
+              </Fragment>
+            }} />
+            <Route path="/login" render={() => {
+              <Fragment>
+                <header>
+                    <Navbar estado={true} />
+                </header>
+                <FormLogin />
+                <Footer />
+              </Fragment>
+            }} />
         </Router>
     )
   }

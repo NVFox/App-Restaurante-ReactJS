@@ -1,6 +1,6 @@
 import React from "react";
 import '../css/contacres.css';
-
+import '../css/pagmenu.css';
 
 const Contactanos = () => {
     return(
