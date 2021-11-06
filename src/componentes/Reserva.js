@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import '../css/contacres.css';
 import '../css/pagmenu.css';
 import Header from "./Header";
-import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Reserva = () => {
 
