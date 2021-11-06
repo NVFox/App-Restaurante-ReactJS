@@ -21,6 +21,11 @@ const Reserva = () => {
             const response = await services.json();
             setServicios(response)
         })()
+        setReserva({...reserva,
+            resCorreo: user.usuCorreo,
+            resTelefono: user.usuTelefono, 
+            usuId: user.usuId
+        })
     }, [])
 
     const handleChange = (e) => {
@@ -33,12 +38,6 @@ const Reserva = () => {
 
     const addReserva = async (e) => {
         e.preventDefault();
-
-        setReserva({...reserva,
-            resCorreo: user.usuCorreo,
-            resTelefono: user.usuTelefono, 
-            usuId: user.usuId
-        })
         
         const requestInit = {
             method: 'POST',
