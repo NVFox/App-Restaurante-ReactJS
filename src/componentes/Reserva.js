@@ -4,6 +4,7 @@ import '../css/pagmenu.css';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Alert } from "./Alert";
+import { sendClient, sendManage } from "../functionsSendMail/functions";
 
 const Reserva = () => {
 
