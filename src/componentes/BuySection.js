@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { messageGen } from '../functionsSendMail/functions';
 
 import '../css/carrito.css';
 
@@ -7,8 +8,39 @@ import ItemCompra from './ItemCompra';
 const BuySection = () => {
      
     const [lstorage, setLstorage] = useState([]);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        let data = localStorage.getItem('items');
+        const userData = localStorage.getItem('user');
+        if (data !== null) {
+            setLstorage(JSON.parse(data));
+        }
+        if (userData !== null) {
+            setUser(JSON.parse(userData))
+        }
+    }, [])
 
     const data = JSON.parse(localStorage.getItem('items'));
+    const total = data.map(item => item.proPrecio).reduce((a, b) => a + b);
+
+    const addCompra = async () => {
+        const compra = {
+            comDescripcion: messageGen(data),
+            comPrecio: total,
+            usuId: user.usuId
+        }
+        
+        const requestInit = {
+            method: 'POST',
+            headers: {'Content-Type': 'Application/json'},
+            body: JSON.stringify(compra)
+        }
+
+        const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/compras`, requestInit);
+        const response = await peticion.json();
+        console.log(response)
+    }
     
     const DelItem = key => {
         let data = JSON.parse(localStorage.getItem('items'));
@@ -35,13 +67,6 @@ const BuySection = () => {
         localStorage.setItem('items', JSON.stringify(data));
         localStorage.setItem(`item${modElement.proId}`, JSON.stringify(modElement));
     }
-
-    useEffect(() => {
-        let data = localStorage.getItem('items');
-        if (data !== null) {
-            setLstorage(JSON.parse(data));
-        }
-    }, [])
     
     const notFound = () => (
         <div className="not-found" id="not-found">
@@ -58,9 +83,9 @@ const BuySection = () => {
             <div className="total-section">
                 <div className="content">
                     <p>TOTAL</p>
-                    <p id="precio-total">{data.length > 0 ? (`$${data.map(item => item.proPrecio).reduce((a, b) => a + b)}`) : (0)}</p>
+                    <p id="precio-total">{data.length > 0 ? (`$${total}`) : (0)}</p>
                 </div>
-                <a href="/formcompra">PAGAR AHORA</a>
+                {user ? <button type="button" onClick={() => addCompra()}>PAGAR AHORA</button> : <a href="/login">PAGAR AHORA</a>}
             </div>
         </div>
     )

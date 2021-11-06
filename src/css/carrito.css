@@ -133,6 +133,17 @@ h3{
     padding: 10px 0;
 }
 
+.total-section button{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fa3d06;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    padding: 10px 0;
+}
+
 .not-found.hidden{
     visibility: hidden;
     opacity: 0;

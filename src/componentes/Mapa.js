@@ -2,7 +2,7 @@ import React from "react";
 import '../css/mapa.css';
 
 
-const mapa = () => {
+const Mapa = () => {
     return (
         <div className="AppM">
             <h1>Mapa del sitio</h1>
@@ -60,4 +60,4 @@ const mapa = () => {
 
 
 }
-export default mapa;
+export default Mapa;

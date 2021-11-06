@@ -9,13 +9,29 @@ export const ControlPanel = () => {
 
     const [itemsData, setItemsData] = useState([]);
     const [data, setData] = useState(sample[type]);
+    const [user, setUser] = useState(null)
 
     useEffect(() => {
         const getItems = async () => {
-            const data = await fetch(`https://app-restaurante-colnodo.herokuapp.com/${type}`);
-            const results = await data.json();
-            setItemsData(results)
+            if (user !== null) {
+                let data;
+
+                if (user.usuRol === "Administrador") {
+                    data = await fetch(`https://app-restaurante-colnodo.herokuapp.com/${type}`);
+                } else {
+                    data = await fetch(`https://app-restaurante-colnodo.herokuapp.com/${type}/${user.usuId}`)
+                }
+
+                const results = await data.json();
+                setItemsData(results)
+            }
         }
+        
+        const userData = localStorage.getItem('user')
+        if (userData !== null) {
+            setUser(userData)
+        }
+
         getItems();
     }, [type])
 
@@ -138,32 +154,43 @@ export const ControlPanel = () => {
     )
 
     return (
-        <div>
-            <div className="d-flex align-items-center bg-dark" style={{height: "70px"}} >
-                <a href="/">
-                    <img src={logo} className="mx-4" alt="logo-restaurante" style={{width: "200px"}} />
-                </a>
-                <a href="/panel/usuarios" className="mx-3 text-white">Usuarios</a>
-                <a href="/panel/servicios" className="mx-3 text-white">Servicios</a>
-                <a href="/panel/productos" className="mx-3 text-white">Productos</a>
-                <a href="/panel/testimonios" className="mx-3 text-white">Testimonios</a>
-            </div>
-            <div className="m-4">
-                <h2>{`Plataforma de ${type}`}</h2>
-            </div>
-            <div className="row justify-content-center">
-                <div className="col-6">
-                    {keys ? dataTable() : notFound()}
-                </div>
-                <div className="col-5">
-                    {(Object.keys(data)).length > 0 ? 
-                        <form onSubmit={e => handleSubmit(e)}>
-                            {Object.keys(data).map(item => formData(item, typeof data[item]))}
-                            <button type="submit" className="btn btn-primary">Crear</button>
-                        </form>
-                    : <div></div> }    
-                </div>
-            </div>
-        </div>
+        <Fragment>
+            {user 
+                ?   (<div>
+                        <div className="d-flex align-items-center bg-dark" style={{height: "70px"}} >
+                            <a href="/">
+                                <img src={logo} className="mx-4" alt="logo-restaurante" style={{width: "200px"}} />
+                            </a>
+                            {user.usuRol === "Administrador" 
+                                ?   <Fragment>
+                                        <a href="/panel/usuarios" className="mx-3 text-white">Usuarios</a>
+                                        <a href="/panel/servicios" className="mx-3 text-white">Servicios</a>
+                                        <a href="/panel/productos" className="mx-3 text-white">Productos</a>
+                                        <a href="/panel/testimonios" className="mx-3 text-white">Testimonios</a>
+                                    </Fragment>
+                                :   <Fragment>
+                                        <a href="/panel/compras" className="mx-3 text-white">Compras</a>
+                                        <a href="/panel/reservas" className="mx-3 text-white">Reservas</a>
+                                    </Fragment>
+                            }
+                        </div>
+                        <div className="m-4">
+                            <h2>{`Plataforma de ${type}`}</h2>
+                        </div>
+                        <div className="row justify-content-center">
+                            <div className="col-6">
+                                {keys ? dataTable() : notFound()}
+                            </div>
+                            <div className="col-5">
+                                {(Object.keys(data)).length > 0 ? 
+                                    <form onSubmit={e => handleSubmit(e)}>
+                                        {Object.keys(data).map(item => formData(item, typeof data[item]))}
+                                        <button type="submit" className="btn btn-primary">Crear</button>
+                                    </form>
+                                : <div></div> }    
+                            </div>
+                        </div>
+                    </div>) : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login'}
+        </Fragment>
     )
 }

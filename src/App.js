@@ -5,7 +5,10 @@ import PaginaInicio from './componentes/PaginaInicio';
 import PaginaCarrito from './componentes/PaginaCarrito';
 import PaginaMenu from './componentes/PaginaMenu';
 import { ControlPanel } from './componentes/ControlPanel';
-import mapa from './componentes/Mapa';
+import Mapa from './componentes/Mapa';
+import Contactanos from './componentes/Contactanos';
+import Reserva from './componentes/Reserva';
+import FormLogin from './componentes/FormLogin';
 
 class App extends Component {
 
@@ -16,7 +19,10 @@ class App extends Component {
             <Route path="/carrito" component={PaginaCarrito} />
             <Route path="/menu" component={PaginaMenu} />
             <Route path="/panel/:type" component={ControlPanel} />
-            <Route path="/mapa" render={mapa} />
+            <Route path="/mapa" component={Mapa} />
+            <Route path="/contactanos" component={Contactanos} />
+            <Route path="/reservas" component={Reserva} />
+            <Route path="/login" component={FormLogin} />
         </Router>
     )
   }

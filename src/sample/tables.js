@@ -1,8 +1,10 @@
 export const usuarios = {
     usuId: 0,
-    usuNom: '',
-    usuPass: '',
-    usuCorreo: ''
+    usuNombre: '',
+    usuContraseña: '',
+    usuRol: '',
+    usuCorreo: '',
+    usuTelefono: ''
 }
 
 export const servicios = {
@@ -24,4 +26,21 @@ export const testimonios = {
     tesNombre: '',
     tesTestimonio: '',
     tesImagen: ''
+}
+
+export const compras = {
+    comId: 0,
+    comDescripcion: '',
+    comPrecio: 0
+}
+
+export const reservas = {
+    resId: 0,
+    resNombre: '',
+    resCorreo: '',
+    resTelefono: '',
+    resServicio: '',
+    resPersonas: 0,
+    resFecha: '',
+    resIndicadores: ''
 }

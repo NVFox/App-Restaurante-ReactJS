@@ -1,64 +1,4 @@
-header{
-    margin: 0%;
-    padding: 0%;
-}
 
-.nav-top{
-    position: absolute;
-    margin-top: -25px;
-    background: grey;
-    z-index: 10;
-    right: 0;
-    left: 0;
-}
-
-.main-navbar{
-    /* border: 2px solid red; */
-    display: flex;
-    margin-left: auto ;
-    height: 12vh;
-}
-.LogoNav img{
-    width: 15em;
-    height: 3em;
-    margin-right: 32em;
-}
-
-li a:hover{
-    text-shadow: 1px 2px 1px white;
-    font-size: 1.1em;
-}
-
-.main-navbar a{
-    text-decoration: none;
-    color: white;
-}
-
-.main-navbar nav{
-    width: 90%;
-}
-
-.main-navbar ul{
-    display: flex;
-    list-style: none;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-}
-
-.main-navbar li{
-    margin-left: 3em;
-}
-
-.logo{
-    display: flex;
-    justify-content: center;
-    transform: translateY(4em);
-}
-
-.logo img{
-    width: 50%;
-}
 
 .main-title{
     display: flex;
@@ -89,46 +29,8 @@ li a:hover{
     right: 50%;
 }
 
-.redes{
-    border-radius: 7%;
-    height: 8.5em;
-    width: 2.5em;
-    margin-left: auto;
-    /* border: 2px solid red; */
-    margin-top: -19em;
-    margin-bottom: 19em;
-    margin-right: 1em;
-    background: rgb(255, 60, 0);
-}
 
-.fa-facebook-f{
-    margin-top: 6px;
-    font-size: 1.5em;
-    margin-left: 12px;
-    color:white;
-}
-.fa-facebook-f:hover{
-    color:rgba(0, 0, 0, 0.644);
-}
-.fa-twitter{
-    font-size: 1.5em;
-    margin-left: 8px;
-    color:white;   
-}
-.fa-twitter:hover{
-    color:rgba(0, 0, 0, 0.644);
-
-}
-.fa-youtube{
-    font-size: 1.5em;
-    margin-left: 7px;
-    color:white;  
-}
-.fa-youtube:hover{
-    color:rgba(0, 0, 0, 0.644);
-}
 .description{
-    /* border: 2px solid red; */
     position: absolute;
     width: 700px;
     height: 100px;
@@ -154,17 +56,23 @@ li a:hover{
 .imgteam{
     margin-top: 5em;
     display: inline-block;
-    width: 33%;
-    /* border: 2px solid red; */
+    width: 30%;
 }
+.imgteam .img{
+    margin-top: 8px;
+    margin-left: 32%;
+    border: 3px solid rgb(124, 124, 124);
+    border-radius: 50%;
+    width: 30%;
 
+}
 
 .imgteam img{
     margin-top: 8px;
     margin-left: 32%;
     border: 3px solid rgb(124, 124, 124);
     border-radius: 50%;
-    width: 37%;
+    width: 30%;
 }
 .imgteam img:hover{
     border: 5px solid  rgba(80, 14, 14, 0.692);
@@ -188,22 +96,11 @@ li a:hover{
 }
 .columna1{
     margin-bottom: 30px;
-    /* border: 2px solid red; */
 }
-/*acabas el conteainar*/
 
-
-
-/*acaba el container*/
-
-.sustitulo {
-    font-size: 2rem;
-
-}
 .comments{
     margin-top: 2em;
     margin-bottom: 2em;
-    /* border: 2px solid red; */
 }
     
 
@@ -251,49 +148,4 @@ li a:hover{
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2359313c'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
 }
 
-footer{
-    display: flex;
-    background: #310101;
-    align-items: center;
-    height: 40vh;
-    justify-content: center;
-}
 
-footer a, footer p{
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-footer a:hover{
-    color: white;
-}
-
-footer ul, footer li{
-    list-style: none;
-    padding: 0;
-}
-
-.foot-logo{
-    width: 25%;
-}
-
-.foot-logo img{
-    width: 80%;
-}
-
-footer .contact{
-    width: 35%;
-}
-
-.foot-menu ul{
-    display: inline-flex;
-}
-
-.foot-menu li{
-    margin-right: 2em;
-}
-
-footer .info > p{
-    margin-bottom: 0;
-}

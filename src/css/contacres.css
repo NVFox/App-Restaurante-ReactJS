@@ -1,0 +1,45 @@
+.AppC body {
+    align-items: center;
+    color:#310101;
+}
+
+#der{
+    width:500px;
+    justify-content: center;
+    margin:25px 10px 25px 20px;      
+}
+.AppC h1{
+    margin:8px 5px 15px;
+}
+#der input{
+    margin: 8px 5px 15px 15px;
+    background: #DFD9D9;
+}
+#der .btn-group{
+    margin:5px 2px 5px 15px;
+    
+}
+.form-check-label{
+    color:#310101;
+    font-style: italic;
+}
+
+.form-select{
+    position:sticky;
+    background: #DFD9D9;
+    margin:5px 5px 5px 15px;
+}
+.btn-group{
+    background: #DFD9D9;
+}
+#der #coment , #indicapers{
+    margin:15px;
+    background: #DFD9D9;
+}
+.btn{
+    position: relative;
+    background: #F13110;
+    border-color: #F13110;
+    align-items: center;
+    left: 50%;
+}
