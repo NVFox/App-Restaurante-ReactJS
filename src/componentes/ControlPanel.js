@@ -14,7 +14,7 @@ export const ControlPanel = () => {
     useEffect(() => {
         const userData = localStorage.getItem('user')
         if (userData !== null) {
-            setUser(userData)
+            setUser(JSON.parse(userData))
         }
 
         const getItems = async () => {
