@@ -21,42 +21,10 @@ class App extends Component {
             <Route path="/carrito" component={PaginaCarrito} />
             <Route path="/menu" component={PaginaMenu} />
             <Route path="/panel/:type" component={ControlPanel} />
-            <Route path="/mapa" render={() => {
-              <Fragment>
-                <header>
-                    <Navbar estado={true} />
-                </header>
-                <Mapa />
-                <Footer />
-              </Fragment>
-            }} />
-            <Route path="/contactanos" render={() => {
-              <Fragment>
-                <header>
-                    <Navbar estado={true} />
-                </header>
-                <Contactanos />
-                <Footer />
-              </Fragment>
-            }} />
-            <Route path="/reservas" render={() => {
-              <Fragment>
-                <header>
-                    <Navbar estado={true} />
-                </header>
-                <Reserva />
-                <Footer />
-              </Fragment>
-            }} />
-            <Route path="/login" render={() => {
-              <Fragment>
-                <header>
-                    <Navbar estado={true} />
-                </header>
-                <FormLogin />
-                <Footer />
-              </Fragment>
-            }} />
+            <Route path="/mapa" component={Mapa} />
+            <Route path="/contactanos" component={Contactanos} />
+            <Route path="/reservas" component={Reserva} />
+            <Route path="/login" component={FormLogin} />
         </Router>
     )
   }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 import '../css/contacres.css';
 import '../css/pagmenu.css';
+import Header from "./Header";
+import Navbar from "./Navbar";
 
 const Reserva = () => {
 
@@ -45,6 +47,7 @@ const Reserva = () => {
         <Fragment>
             {user
                 ?   <div className="AppC">
+                    <Header />
                         <section id="der">
                         <form onSubmit={e => addReserva(e)} >
                             <h1>Reserva Ya</h1>
@@ -76,6 +79,7 @@ const Reserva = () => {
                             <button type="submit" class="btn btn-primary">Reservar</button>
                         </form>
                         </section>
+                    <Footer />
                     </div> 
                     : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login' }
         </Fragment>
