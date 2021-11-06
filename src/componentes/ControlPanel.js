@@ -164,10 +164,10 @@ export const ControlPanel = () => {
                                         <a href="/panel/productos" className="mx-3 text-white">Productos</a>
                                         <a href="/panel/testimonios" className="mx-3 text-white">Testimonios</a>
                                         <div className="justify-self-right">
-                                            <a href="/panel/usuarios" id="btnlogin">
+                                            <a href="/panel/usuarios" className="text-white" id="btnlogin">
                                                 <i className="fas fa-user"></i>
                                             </a>
-                                            <a href="/panel/usuarios" className="mx-2" >{user.usuNombre}</a>
+                                            <a href="/panel/usuarios" className="mx-2 text-white" >{user.usuNombre}</a>
                                             <button type="button" className="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
                                         </div>
                                     </Fragment>
@@ -175,10 +175,10 @@ export const ControlPanel = () => {
                                         <a href="/panel/compras" className="mx-3 text-white">Compras</a>
                                         <a href="/panel/reservas" className="mx-3 text-white">Reservas</a>
                                         <div className="justify-self-end">
-                                            <a href="/panel/compras" id="btnlogin">
+                                            <a href="/panel/compras" className="text-white" id="btnlogin">
                                                 <i className="fas fa-user"></i>
                                             </a>
-                                            <a href="/panel/compras" className="mx-2">{user.usuNombre}</a>
+                                            <a href="/panel/compras" className="mx-2 text-white">{user.usuNombre}</a>
                                             <button type="button" className="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
                                         </div>
                                     </Fragment>

@@ -26,7 +26,7 @@ const Reserva = () => {
             resTelefono: user.usuTelefono, 
             usuId: user.usuId
         })
-    }, [])
+    }, [user])
 
     const handleChange = (e) => {
         setReserva({...reserva, [e.target.name]: e.target.value})
