@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import imgoficial from '../img/insumos/restaurante.jpg';
 import img from '../img/insumos/personal1@2x.png';
 import img1 from '../img/insumos/personal2@2x.png';
 import img2 from '../img/insumos/personal3@2x.png';
-import test1 from '../img/insumos/testimonio1@2x.png';
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import Slider from "./Slider";
 import '../css/nosotros.css';
 import '../css/pagmenu.css';
 
 const Nosotros = () => {
+    const [comments, setComments] = useState([])
+
+    useEffect(() => {
+      (async () => {
+        const data = await fetch(`https://app-restaurante-colnodo.herokuapp.com/testimonios`);
+        const results = await data.json();
+        setComments(results)
+      })()
+    }, [])
+
     return (
         <div className="m-0 row AppN menu">
         <header>
@@ -73,76 +83,10 @@ const Nosotros = () => {
                     </div>
                 </div>
             </section>
-
-            <section className="comments">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="comment-cnt">
-                                <div class="comment-img">
-                                    <div class="prf-pic">
-                                        <img src={img} alt="" />
-                                    </div>
-                                </div>
-                                <div class="comment-txt">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis odit repudiandae sed,
-                                        corrupti autem deleniti laborum harum dolor, atque voluptas,
-                                        suscipit earum quae velit iste perferendis provident et laboriosam rem sunt beatae
-                                        architecto accusantium doloribus! Veritatis autem dolorem,
-                                        suscipit commodi debitis labore sed sequi ab minus placeat omnis facere similique
-                                        explicabo praesentium culpa in impedit.</p>
-                                    <p>Cliente 1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="comment-cnt">
-                                <div class="comment-img">
-                                    <div class="prf-pic">
-                                        <img src={test1} alt="" />
-                                    </div>
-                                </div>
-                                <div class="comment-txt">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis odit repudiandae sed,
-                                        corrupti autem deleniti laborum harum dolor, atque voluptas, suscipit earum quae velit
-                                        iste perferendis provident et laboriosam rem sunt beatae architecto accusantium
-                                        doloribus! Veritatis autem dolorem, suscipit commodi debitis labore sed sequi ab minus
-                                        placeat omnis facere similique explicabo praesentium culpa in impedit.</p>
-                                    <p>Cliente 2</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="comment-cnt">
-                                <div class="comment-img">
-                                    <div class="prf-pic">
-                                        <img src={img2} alt="" />
-                                    </div>
-                                </div>
-                                <div class="comment-txt">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis odit repudiandae sed,
-                                        corrupti autem deleniti laborum harum dolor, atque voluptas, suscipit earum quae velit
-                                        iste perferendis provident et laboriosam rem sunt beatae architecto accusantium
-                                        doloribus! Veritatis autem dolorem, suscipit commodi debitis labore sed sequi ab minus
-                                        placeat omnis facere similique explicabo praesentium culpa in impedit.</p>
-                                    <p>Cliente 3</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="visually-hidden">Previous</span>
-                    </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="visually-hidden">Next</span>
-                    </button>
-                </div>
-
-            </section>
+            {comments.length > 0 && 
+              <section className="comments">
+                  <Slider estado={false} comentarios={comments} />
+              </section>}
             <Footer />
         </div>
     );
