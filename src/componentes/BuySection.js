@@ -46,9 +46,6 @@ const BuySection = () => {
         const response = await peticion.json();
         console.log(response)
 
-        sendClient(msg, user.usuCorreo, user.usuNombre);
-        sendManage(msg);
-
         data.map(item => localStorage.removeItem(`item${item.proId}`));
         localStorage.removeItem('items');
 

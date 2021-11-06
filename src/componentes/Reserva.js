@@ -38,6 +38,12 @@ const Reserva = () => {
 
     const addReserva = async (e) => {
         e.preventDefault();
+
+        setAlertData({
+            message: 'Su orden de reserva se ha efectuado correctamente',
+            type: 'success'
+        })
+        setAlertShow(true);
         
         const requestInit = {
             method: 'POST',
@@ -49,11 +55,9 @@ const Reserva = () => {
         const response = await peticion.json();
         console.log(response)
 
-        setAlertData({
-            message: 'Su orden de reserva se ha efectuado correctamente',
-            type: 'success'
-        })
-        setAlertShow(true)
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000)
     }
 
     return(
@@ -94,14 +98,14 @@ const Reserva = () => {
                             <button type="submit" class="btn btn-primary btncenter">Reservar</button>
                         </form>
                         </section>
-                        <div id="liveAlertPlaceholder">
+                    <Footer />
+                    <div id="liveAlertPlaceholder">
                             {alertShow ? 
                             (<div>
                                 <Alert alerts={alertData} reset={handleAlert} />
                             </div> ) : 
                             (<div></div>) }
                         </div>
-                    <Footer />
                     </div> 
                     : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login' }
         </Fragment>
