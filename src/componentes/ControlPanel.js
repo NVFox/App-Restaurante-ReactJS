@@ -9,14 +9,10 @@ export const ControlPanel = () => {
 
     const [itemsData, setItemsData] = useState([]);
     const [data, setData] = useState(sample[type]);
-    const [user, setUser] = useState(null)
+
+    const user = JSON.parse(localStorage.getItem('user'))
 
     useEffect(() => {
-        const userData = localStorage.getItem('user')
-        if (userData !== null) {
-            setUser(JSON.parse(userData))
-        }
-
         const getItems = async () => {
             if (user !== null) {
                 let data;
@@ -189,7 +185,8 @@ export const ControlPanel = () => {
                                 : <div></div> }    
                             </div>
                         </div>
-                    </div>) : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login'}
+                    </div>) 
+                : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login'}
         </Fragment>
     )
 }

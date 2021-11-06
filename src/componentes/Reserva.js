@@ -14,7 +14,7 @@ const Reserva = () => {
             if (data !== null) {
                 setUser(JSON.parse(data))
             }
-            
+
             const services = await fetch(`https://app-restaurante-colnodo.herokuapp.com/servicios`);
             const response = await services.json();
             setServicios(response)
@@ -46,7 +46,7 @@ const Reserva = () => {
     }
 
     return(
-        <div>
+        <Fragment>
             {user
                 ?   <div className="AppC">
                         <section id="der">
@@ -80,8 +80,9 @@ const Reserva = () => {
                             <button type="submit" class="btn btn-primary">Reservar</button>
                         </form>
                         </section>
-                    </div> : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login' }
-        </div>
+                    </div> 
+                    : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login' }
+        </Fragment>
     );
 
 }
