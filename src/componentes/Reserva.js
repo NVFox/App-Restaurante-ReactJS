@@ -37,7 +37,7 @@ const Reserva = () => {
         setReserva({...reserva,
             resCorreo: user.usuCorreo,
             resTelefono: user.usuTelefono, 
-            usuId: user.usuId,
+            usuId: user.usuId
         })
         
         const requestInit = {
@@ -79,7 +79,7 @@ const Reserva = () => {
                             <div className="btn-group">
                                 <select className="form-select" id="selectres" name="resServicio" onChange={e => handleChange(e)} required>
                                     <option selected value="">Seleccione el servicio</option>
-                                    {servicios.map(item => <option value={item.serId}>{item.serTitulo}</option>)}
+                                    {servicios.map(item => <option value={item.serTitulo}>{item.serTitulo}</option>)}
                                 </select>
                             </div>
                             <div>
