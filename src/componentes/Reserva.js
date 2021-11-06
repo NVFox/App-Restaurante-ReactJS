@@ -50,9 +50,6 @@ const Reserva = () => {
         const response = await peticion.json();
         console.log(response)
 
-        sendClient('Su orden de reserva ha sido procesada correctamente', user.usuCorreo, user.usuNombre);
-        sendManage('Una nueva orden de reserva ha sido procesada correctamente');
-
         setAlertData({
             message: 'Su orden de reserva se ha efectuado correctamente',
             type: 'success'

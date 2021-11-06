@@ -19,7 +19,7 @@ const Nosotros = () => {
                 <div className="eee">
                     <img id="restaurante" src={imgoficial} alt="" />
                 </div>
-                <div className="description">
+                <div className="descriptionN">
                     <h2 className="sustitulo">Nuestra Historia</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quia provident officiis maiores tenetur
                         repellendus in asperiores expedita harum unde porro, minus voluptatum officia quidem ut facilis est
