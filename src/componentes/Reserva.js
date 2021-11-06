@@ -9,11 +9,12 @@ const Reserva = () => {
     const [servicios, setServicios] = useState([])
 
     useEffect(() => {
-        const data = localStorage.getItem('user')
-        if (data !== null) {
-            setUser(JSON.parse(data))
-        }
         (async() => {
+            const data = localStorage.getItem('user')
+            if (data !== null) {
+                setUser(JSON.parse(data))
+            }
+            
             const services = await fetch(`https://app-restaurante-colnodo.herokuapp.com/servicios`);
             const response = await services.json();
             setServicios(response)
@@ -45,7 +46,7 @@ const Reserva = () => {
     }
 
     return(
-        <Fragment>
+        <div>
             {user
                 ?   <div className="AppC">
                         <section id="der">
@@ -80,7 +81,7 @@ const Reserva = () => {
                         </form>
                         </section>
                     </div> : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login' }
-        </Fragment>
+        </div>
     );
 
 }
