@@ -52,6 +52,7 @@ const Reserva = () => {
         }
 
         const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/reservas`, requestInit);
+        console.log(peticion);
 
         setTimeout(() => {
             window.location.reload();
