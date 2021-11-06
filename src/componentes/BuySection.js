@@ -22,7 +22,7 @@ const BuySection = () => {
     }, [])
 
     const data = JSON.parse(localStorage.getItem('items'));
-    const total = data.map(item => item.proPrecio).reduce((a, b) => a + b);
+    const total = data.length > 0 ? data.map(item => item.proPrecio).reduce((a, b) => a + b) : 0;
 
     const addCompra = async () => {
         const compra = {
@@ -30,7 +30,7 @@ const BuySection = () => {
             comPrecio: total,
             usuId: user.usuId
         }
-        
+
         const requestInit = {
             method: 'POST',
             headers: {'Content-Type': 'Application/json'},
@@ -83,7 +83,7 @@ const BuySection = () => {
             <div className="total-section">
                 <div className="content">
                     <p>TOTAL</p>
-                    <p id="precio-total">{data.length > 0 ? (`$${total}`) : (0)}</p>
+                    <p id="precio-total">{total}</p>
                 </div>
                 {user ? <button type="button" onClick={() => addCompra()}>PAGAR AHORA</button> : <a href="/login">PAGAR AHORA</a>}
             </div>

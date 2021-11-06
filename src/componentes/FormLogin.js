@@ -66,32 +66,33 @@ const FormLogin = () => {
     return (
         <Fragment>
             {user 
-                ?   <div className="form-login">
-                        <header>
-                            <Navbar estado={true} />
-                        </header>
-                        <section className="services">
-                            <form class="envio-correo" onSubmit={e => handleLogin(e)} >
-                                <fieldset>
-                                    <legend>Inicio de Sesión</legend>
-                                    <div class="inp">
-                                        <p>Inicie sesión para continuar</p>
-                                        <input type="text" name="usuNombre" id="nombre" placeholder="Nombre de Usuario" onChange={e => handleChange(e)} />
-                                        <input type="password" name="usuContraseña" id="pass" placeholder="Contraseña" onChange={e => handleChange(e)} />
-                                    </div>
-                                    <button type="submit" id="btnenviar">Entrar</button>
-                                </fieldset>
-                            </form>
-                        </section>
-                        <div id="liveAlertPlaceholder">
-                            {alertShow 
-                                ?   (<div>
-                                        <Alert alerts={alertData} reset={handleAlert} />
-                                    </div> ) 
-                                :   (<div></div>) }
-                        </div>
-                        <Footer />
-                    </div> : window.history.back() }
+                ? window.location.back()
+                : <div className="form-login">
+                <header>
+                    <Navbar estado={true} />
+                </header>
+                <section className="services">
+                    <form class="envio-correo" onSubmit={e => handleLogin(e)} >
+                        <fieldset>
+                            <legend>Inicio de Sesión</legend>
+                            <div class="inp">
+                                <p>Inicie sesión para continuar</p>
+                                <input type="text" name="usuNombre" id="nombre" placeholder="Nombre de Usuario" onChange={e => handleChange(e)} />
+                                <input type="password" name="usuContraseña" id="pass" placeholder="Contraseña" onChange={e => handleChange(e)} />
+                            </div>
+                            <button type="submit" id="btnenviar">Entrar</button>
+                        </fieldset>
+                    </form>
+                </section>
+                <div id="liveAlertPlaceholder">
+                    {alertShow 
+                        ?   (<div>
+                                <Alert alerts={alertData} reset={handleAlert} />
+                            </div> ) 
+                        :   (<div></div>) }
+                </div>
+                <Footer />
+            </div> }
         </Fragment>
     )
 }
