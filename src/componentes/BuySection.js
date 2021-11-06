@@ -28,6 +28,7 @@ const BuySection = () => {
     const total = data.length > 0 ? data.map(item => item.proPrecio).reduce((a, b) => a + b) : 0;
 
     const addCompra = () => {
+        
         setAlertData({
             message: 'Su orden de compra se ha efectuado correctamente',
             type: 'success'
@@ -36,7 +37,7 @@ const BuySection = () => {
 
         (async () => {
             const msg = messageGen(data);
-            
+
             const compra = {
                 comDescripcion: msg,
                 comPrecio: total,
@@ -55,10 +56,6 @@ const BuySection = () => {
 
         data.map(item => localStorage.removeItem(`item${item.proId}`));
         localStorage.removeItem('items');
-
-        setTimeout(() => {
-            setAlertShow(false);
-        }, 3000);
     }
 
     const handleAlert = () => {
