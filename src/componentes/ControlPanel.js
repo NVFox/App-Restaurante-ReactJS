@@ -12,6 +12,11 @@ export const ControlPanel = () => {
     const [user, setUser] = useState(null)
 
     useEffect(() => {
+        const userData = localStorage.getItem('user')
+        if (userData !== null) {
+            setUser(userData)
+        }
+
         const getItems = async () => {
             if (user !== null) {
                 let data;
@@ -26,14 +31,8 @@ export const ControlPanel = () => {
                 setItemsData(results)
             }
         }
-        
-        const userData = localStorage.getItem('user')
-        if (userData !== null) {
-            setUser(userData)
-        }
-
         getItems();
-    }, [type])
+    }, [type, user])
 
     const keys = itemsData[0] ? Object.keys(itemsData[0]) : [];
 

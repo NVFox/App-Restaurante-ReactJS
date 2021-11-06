@@ -66,16 +66,16 @@ const FormLogin = () => {
     return (
         <Fragment>
             {user 
-                ? window.location.back()
+                ? window.history.back()
                 : <div className="form-login">
                 <header>
                     <Navbar estado={true} />
                 </header>
                 <section className="services">
-                    <form class="envio-correo" onSubmit={e => handleLogin(e)} >
+                    <form className="envio-correo" onSubmit={e => handleLogin(e)} >
                         <fieldset>
                             <legend>Inicio de Sesión</legend>
-                            <div class="inp">
+                            <div className="inp">
                                 <p>Inicie sesión para continuar</p>
                                 <input type="text" name="usuNombre" id="nombre" placeholder="Nombre de Usuario" onChange={e => handleChange(e)} />
                                 <input type="password" name="usuContraseña" id="pass" placeholder="Contraseña" onChange={e => handleChange(e)} />
