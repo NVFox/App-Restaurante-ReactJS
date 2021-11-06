@@ -26,7 +26,7 @@ const Reserva = () => {
             resTelefono: user.usuTelefono, 
             usuId: user.usuId
         })
-    }, [user])
+    }, [user, reserva])
 
     const handleChange = (e) => {
         setReserva({...reserva, [e.target.name]: e.target.value})
@@ -54,10 +54,6 @@ const Reserva = () => {
             type: 'success'
         })
         setAlertShow(true)
-
-        setTimeout(() => {
-            setAlertShow(false);
-        }, 3000);
     }
 
     return(
