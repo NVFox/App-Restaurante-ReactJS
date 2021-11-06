@@ -5,7 +5,7 @@ export const messageGen = data => {
 
         let keys = Object.keys(item);
 
-        msg += `Artículo ${(datos.indexOf(item)) + 1}\n\n`
+        msg += `Artículo ${(data.indexOf(item)) + 1}\n\n`
 
         for (let j = 0; j < keys.length; j++){
             if (keys[j] !== 'usuId' && keys[j] !== 'usuImagen'){

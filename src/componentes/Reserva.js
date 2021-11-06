@@ -14,7 +14,7 @@ const Reserva = () => {
             setUser(JSON.parse(data))
         }
         (async() => {
-            const services = await fetch(`https://app-restaurante-colnodo.herokuapp.com/servicios`, requestInit);
+            const services = await fetch(`https://app-restaurante-colnodo.herokuapp.com/servicios`);
             const response = await services.json();
             setServicios(response)
         })()
