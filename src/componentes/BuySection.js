@@ -34,24 +34,24 @@ const BuySection = () => {
         })
         setAlertShow(true)
 
-        const msg = messageGen(data)
-
-        const compra = {
-            comDescripcion: msg,
-            comPrecio: total,
-            usuId: user.usuId
-        }
-
         (async () => {
+            const msg = messageGen(data);
+            
+            const compra = {
+                comDescripcion: msg,
+                comPrecio: total,
+                usuId: user.usuId
+            };
+
             const requestInit = {
                 method: 'POST',
                 headers: {'Content-Type': 'Application/json'},
                 body: JSON.stringify(compra)
-            }
+            };
     
             const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/compras`, requestInit);
             console.log(peticion);
-        })()
+        })();
 
         data.map(item => localStorage.removeItem(`item${item.proId}`));
         localStorage.removeItem('items');
