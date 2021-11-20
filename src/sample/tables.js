@@ -43,5 +43,32 @@ export const reservas = {
     resServicio: '',
     resPersonas: 0,
     resFecha: '',
-    resIndicadores: ''
+    resIndicadores: '',
+    resEstado: ''
+}
+
+export const contacto = {
+    conId: 0,
+    conAsunto: '',
+    conNombre: '',
+    conCorreo: '',
+    conMensaje: ''
+}
+
+export const empleados = {
+    empId: 0,
+    empNombre: '',
+    empCargo: '',
+    empImagen: ''
+}
+
+export const establecimiento = {
+    estId: 0,
+    estNombre: '',
+    estDescripcion: ''
+}
+
+export const mensajes = {
+    menId: 0,
+    menComentario: ''
 }

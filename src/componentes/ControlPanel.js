@@ -160,9 +160,13 @@ export const ControlPanel = () => {
                             {user.usuRol === "Administrador" 
                                 ?   <Fragment>
                                         <a href="/panel/usuarios" className="mx-3 text-white">Usuarios</a>
+                                        <a href="/panel/empleados" className="mx-3 text-white">Empleados</a>
                                         <a href="/panel/servicios" className="mx-3 text-white">Servicios</a>
                                         <a href="/panel/productos" className="mx-3 text-white">Productos</a>
                                         <a href="/panel/testimonios" className="mx-3 text-white">Testimonios</a>
+                                        <a href="/panel/mensajes" className="mx-3 text-white">Comentarios</a>
+                                        <a href="/panel/contacto" className="mx-3 text-white">Contacto</a>
+                                        <a href="/panel/establecimiento" className="mx-3 text-white">Restaurante</a>
                                         <div className="justify-self-right">
                                             <a href="/panel/usuarios" className="text-white" id="btnlogin">
                                                 <i className="fas fa-user"></i>
@@ -174,6 +178,7 @@ export const ControlPanel = () => {
                                 :   <Fragment>
                                         <a href="/panel/compras" className="mx-3 text-white">Compras</a>
                                         <a href="/panel/reservas" className="mx-3 text-white">Reservas</a>
+                                        <a href="/panel/mensajes" className="mx-3 text-white">Comentarios</a>
                                         <div className="justify-self-end">
                                             <a href="/panel/compras" className="text-white" id="btnlogin">
                                                 <i className="fas fa-user"></i>
