@@ -29,6 +29,9 @@ const Navbar = props => {
                             <a href="/servicios">SERVICIOS</a>
                         </li>
                         <li>
+                            <a href="/comentarios">COMENTARIOS</a>
+                        </li>
+                        <li>
                             <a href="/contactanos">CONTÁCTANOS</a>
                         </li>
                         <li>

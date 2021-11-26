@@ -1,57 +1,94 @@
-import React from "react";
+import React ,{ Fragment }from "react";
 import '../css/contacres.css';
 import '../css/pagmenu.css';
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import { Alert } from "./Alert";
+import { useState } from 'react';
 
 const Contactanos = () => {
+    const [contactanos, setContactanos] = useState({});
+    const [alertData, setAlertData] = useState({})
+    const [alertShow, setAlertShow] = useState(false)
+
+    const handleChange = (e) => {
+        setContactanos({...contactanos, [e.target.name]: e.target.value})
+    }
+
+    const handleAlert = () => {
+        setAlertShow(false);
+    }
+
+    const addContactanos = e => {
+        e.preventDefault();
+
+        setAlertData({
+            message: 'Su solicitud se ha recibido correctamente',
+            type: 'success'
+        })
+        setAlertShow(true);
+
+        (async ()=> {
+            const requestInit = {
+                method: 'POST',
+                headers: {'Content-Type': 'Application/json'},
+                body: JSON.stringify(contactanos)
+            }
+    
+            const peticion = await fetch(`https://app-restaurante-colnodo.herokuapp.com/contacto`, requestInit);
+            console.log(peticion);
+        })()
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000)
+    }
+
+   
     return(
+        <Fragment> 
         <div className="m-0 row AppC menu">
             <header>
                 <Navbar estado={true} />
             </header>
             <section id="der">
             <h1>Contactenos</h1>
-            <form className="form">
-                <div className="col-md-8">
-                    <select className="form-select" id="controlselect" required>
-                        <option selected>Seleccione el servicio</option>
-                        <option>Celebración de cumpleaños</option>
-                        <option>Aniversarios</option>
-                        <option>Fiestas infantiles</option>
-                        <option>Declaraciones o propuestas</option>
-                        <option>Despedidas</option>
-                        <option>Cena de amigos</option>
-                    </select>
-                </div>
+            <form className="form"onSubmit={e => addContactanos(e)}>
 
-                <div className="">
-                    <input type="text" className="form-control" id="asunto" placeholder="Asunto" required/>
+                <div className="form-group">
+                    <input type="text" className="form-control" id="asunto" name="ConAsunto" placeholder="Asunto" onChange={e => handleChange(e)} required/>
                 </div>
 
                 <div className="form-group">
-                    <input type="text" className="form-control" id="name" placeholder="Nombre Completo" required/>
+                    <input type="text" className="form-control" id="name" name="ConNombre" placeholder="Nombre Completo" onChange={e => handleChange(e)} required/>
                 </div>
 
                 <div className="form-group">
-                    <input type="email" className="form-control" id="email" placeholder="Correo electronico" required/>
+                    <input type="email" className="form-control" id="email" name="ConCorreo" placeholder="Correo electrónico" onChange={e => handleChange(e)} required/>
                 </div>
 
                 <div className="form-group">
-                    <textarea className="form-control" rows="5" id="coment" placeholder="Su mensaje" required></textarea>
+                    <textarea className="form-control" rows="5" id="coment" name="ConMensaje"placeholder="Su mensaje" onChange={e => handleChange(e)} required></textarea>
                 </div>
                 <div className="form-check">
                     <input type="checkbox" className="check" id="check"/>
                     <label className="form-check-label" htmlFor="check">Acepto Términos y condiciones</label>
                 </div>
-                <div className="btn-group1">
+                <div className="btn-boton">
                    <button type="submit" className="btn btn-primary btncenter">ENVIAR</button>
                 </div>
             </form>
             </section>
             <Footer />
-        </div>
-
+            <div id="liveAlertPlaceholder">
+                            {alertShow ? 
+                            (<div>
+                                <Alert alerts={alertData} reset={handleAlert} />
+                            </div> ) : 
+                            (<div></div>) }
+                        </div>
+                    </div> 
+        </Fragment>
     );
 }
 

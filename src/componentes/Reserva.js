@@ -112,7 +112,7 @@ const Reserva = () => {
                             (<div></div>) }
                         </div>
                     </div> 
-                    : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login' }
+                    : window.location.href = '/login' }
         </Fragment>
     );
 

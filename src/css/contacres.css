@@ -6,6 +6,7 @@
 #der{
     width:500px;
     justify-content: center;
+    min-height: 46vh;
     margin:25px 10px 25px 20px;      
 }
 .AppC h1{

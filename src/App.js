@@ -7,6 +7,7 @@ import PaginaMenu from './componentes/PaginaMenu';
 import { ControlPanel } from './componentes/ControlPanel';
 import Mapa from './componentes/Mapa';
 import Contactanos from './componentes/Contactanos';
+import Comentario from './componentes/Comentario';
 import Reserva from './componentes/Reserva';
 import FormLogin from './componentes/FormLogin';
 import Nosotros from './componentes/Nosotros';
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/mapa" component={Mapa} />
             <Route path="/nosotros" component={Nosotros} />
             <Route path="/contactanos" component={Contactanos} />
+            <Route path="/comentarios" component={Comentario} />
             <Route path="/reservas" component={Reserva} />
             <Route path="/login" component={FormLogin} />
             <Route path="/servicios" component={PaginaServicios} />

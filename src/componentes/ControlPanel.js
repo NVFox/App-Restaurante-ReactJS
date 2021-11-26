@@ -4,6 +4,7 @@ import logo from '../img/insumos/logo2@2x.png'
 import { useParams } from 'react-router';
 import { closeSession } from '../functionsSendMail/functions';
 
+
 export const ControlPanel = () => {
 
     const { type } = useParams();
@@ -34,7 +35,7 @@ export const ControlPanel = () => {
     const keys = itemsData[0] ? Object.keys(itemsData[0]) : [];
 
     const handleChange = e => {
-        setData({...data, [e.target.name]: e.target.value})
+        setData({ ...data, [e.target.name]: e.target.value })
     }
 
     const handleDelete = async (id) => {
@@ -65,7 +66,7 @@ export const ControlPanel = () => {
             }
         }
 
-        setItemsData(itemsData.map(item => item[`${nameObj}Id`] === data[`${nameObj}Id`] ? {...item, ...data} : item));
+        setItemsData(itemsData.map(item => item[`${nameObj}Id`] === data[`${nameObj}Id`] ? { ...item, ...data } : item));
 
         const requestInit = {
             method: 'PUT',
@@ -118,95 +119,172 @@ export const ControlPanel = () => {
     )
 
     const dataTable = () => (
-        <div className="table-responsive">
-            <table className="table table-striped table-hover">
+
+
+        <div class="table-responsive-sm">
+            <table className="table">
                 <thead>
                     <tr>
                         {keys.map(item => <th key={keys.indexOf(item)}>{item.slice(3)}</th>)}
                     </tr>
                 </thead>
+
                 <tbody>
                     {itemsData.length > 0 ? itemsData.map(item =>
-                    <Fragment key={`frag${itemsData.indexOf(item)}`}>
-                        <tr key={`item${itemsData.indexOf(item)}`}>
-                            {Object.values(item).map(i => <td key={`item${Object.values(item).indexOf(i)}`} >{i}</td>)}
-                            <td key={`control${itemsData.indexOf(item)}`}>
-                                <button type="button" className="btn btn-dark mx-3" onClick={() => handleUpdate(item[`${(type).slice(0, 3)}Id`])}>Actualizar</button>
-                                <button type="button" className="btn btn-danger" onClick={() => handleDelete(item[`${(type).slice(0, 3)}Id`])} >Borrar</button>
-                            </td>
-                        </tr>
-                    </Fragment>
+                        <Fragment key={`frag${itemsData.indexOf(item)}`}>
+                            <tr key={`item${itemsData.indexOf(item)}`}>
+                                {Object.values(item).map(i => <td key={`item${Object.values(item).indexOf(i)}`} >{i}</td>)}
+                                <td key={`control${itemsData.indexOf(item)}`}>
+                                    <button type="button" className="btn text-white" style={{background:"#371409"}} onClick={() => handleUpdate(item[`${(type).slice(0, 3)}Id`])}>Actualizar</button>
+                                    <button type="button" className="btn text-white" style={{ margin: "auto", display: "block", background:"#D64A21"}} onClick={() => handleDelete(item[`${(type).slice(0, 3)}Id`])} >  Borrar  </button>
+                                </td>
+                            </tr>
+                        </Fragment>
                     ) : <Fragment></Fragment>}
                 </tbody>
             </table>
         </div>
+
+
+
+
     )
 
     const formData = (key, type) => (
-        <div className="mb-3" key={`item${key}`}>
+
+
+        <div className="col" key={`item${key}`}>
             <label htmlFor={`key${key}`} className="form-label">{key.slice(3)}</label>
             <input name={key} value={data[key]} type={type === 'number' ? 'number' : 'text'} className="form-control" onChange={e => handleChange(e)} id={`key${key}`} required />
+
+
         </div>
+
     )
 
     return (
         <Fragment>
-            {user 
-                ?   (<div>
-                        <div className="d-flex align-items-center bg-dark" style={{height: "70px"}} >
-                            <a href="/">
-                                <img src={logo} className="mx-4" alt="logo-restaurante" style={{width: "200px"}} />
-                            </a>
-                            {user.usuRol === "Administrador" 
-                                ?   <Fragment>
-                                        <a href="/panel/usuarios" className="mx-3 text-white">Usuarios</a>
-                                        <a href="/panel/empleados" className="mx-3 text-white">Empleados</a>
-                                        <a href="/panel/servicios" className="mx-3 text-white">Servicios</a>
-                                        <a href="/panel/productos" className="mx-3 text-white">Productos</a>
-                                        <a href="/panel/testimonios" className="mx-3 text-white">Testimonios</a>
-                                        <a href="/panel/mensajes" className="mx-3 text-white">Comentarios</a>
-                                        <a href="/panel/contacto" className="mx-3 text-white">Contacto</a>
-                                        <a href="/panel/establecimiento" className="mx-3 text-white">Restaurante</a>
-                                        <div className="justify-self-right">
-                                            <a href="/panel/usuarios" className="text-white" id="btnlogin">
-                                                <i className="fas fa-user"></i>
-                                            </a>
-                                            <a href="/panel/usuarios" className="mx-2 text-white" >{user.usuNombre}</a>
-                                            <button type="button" className="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
+            {user
+                ? (
+                    <>
+                        <>
+                            {user.usuRol === "Administrador"
+                                ? <Fragment>
+ 
+                                    <nav className="navbar navbar-light  fixed-top" style={{background:"#E57024"}}>
+                                        <div className="container-fluid">
+                                            <a className="navbar-brand" href="/"><img src={logo} alt="logo-restaurante" style={{ width: "140px" }} /></a>
+                                            <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                                <span className="navbar-toggler-icon"></span>
+                                            </button>
+                                            <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style={{background:"#E57024"}}>
+                                                <div className="offcanvas-header">
+                                                    <h5 className="offcanvas-title" id="offcanvasNavbarLabel"><img src={logo} alt="logo-restaurante" style={{ width: "140px" }} /></h5>
+                                                    <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                </div>
+                                                <div className="offcanvas-body">
+                                                    <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                                        <li className="nav-item">
+                                                            <a className="nav-link active text-white" aria-current="page" href="/panel/usuarios">Usuarios</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a id="stl" className="nav-link text-white" href="/panel/empleados">Empleados</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/servicios">Servicios</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/productos">Productos</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/testimonios">Testimonios</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/mensajes">Comentarios</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/contacto">Contacto</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/establecimiento">Restaurante</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/usuarios">{user.usuNombre}</a>
+                                                            <button type="button" className="btn text-white" style={{background:"#6F2507"}} onClick={() => closeSession()}>Cerrar Sesión</button>
+                                                        </li>
+
+                                                    </ul>
+
+                                                </div>
+                                            </div>
                                         </div>
-                                    </Fragment>
-                                :   <Fragment>
-                                        <a href="/panel/compras" className="mx-3 text-white">Compras</a>
-                                        <a href="/panel/reservas" className="mx-3 text-white">Reservas</a>
-                                        <a href="/panel/mensajes" className="mx-3 text-white">Comentarios</a>
-                                        <div className="justify-self-end">
-                                            <a href="/panel/compras" className="text-white" id="btnlogin">
-                                                <i className="fas fa-user"></i>
-                                            </a>
-                                            <a href="/panel/compras" className="mx-2 text-white">{user.usuNombre}</a>
-                                            <button type="button" className="btn btn-light" onClick={() => closeSession()}>Cerrar Sesión</button>
+                                    </nav>
+
+                                </Fragment>
+                                : <Fragment>
+                                    <nav className="navbar navbar-light fixed-top" style={{background:"#E57024"}}>
+                                        <div className="container-fluid">
+                                            <a className="navbar-brand" href="/"><img src={logo} alt="logo-restaurante" style={{ width: "140px" }} /></a>
+                                            <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                                <span className="navbar-toggler-icon"></span>
+                                            </button>
+                                            <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style={{background:"#E57024"}}>
+                                                <div className="offcanvas-header">
+                                                    <h5 className="offcanvas-title" id="offcanvasNavbarLabel"><img src={logo} alt="logo-restaurante" style={{ width: "140px" }} /></h5>
+                                                    <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                </div>
+                                                <div className="offcanvas-body">
+                                                    <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                                        <li className="nav-item">
+                                                            <a className="nav-link active text-white" style={{hover:'#6F2507'}} aria-current="page" href="/panel/compras">Compras</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/reservas">Reservas</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/mensajes">Comentarios</a>
+                                                        </li>
+
+                                                        <li className="nav-item">
+                                                            <a className="nav-link text-white" href="/panel/comprass">{user.usuNombre}</a>
+                                                            <button type="button" className="btn text-white" style={{background:"#6F2507"}} onClick={() => closeSession()}>Cerrar Sesión</button>
+                                                        </li>
+
+                                                    </ul>
+
+                                                </div>
+                                            </div>
                                         </div>
-                                    </Fragment>
+                                    </nav>
+ 
+                                </Fragment>
                             }
-                        </div>
+                        </>
+
                         <div className="m-4">
                             <h2>{`Plataforma de ${type}`}</h2>
                         </div>
-                        <div className="row justify-content-center">
-                            <div className="col-6">
+
+
+                        <div class="row">
+                            <div className="col">
                                 {keys ? dataTable() : notFound()}
                             </div>
-                            <div className="col-5">
-                                {(Object.keys(data)).length > 0 ? 
+
+
+                            <div className="col">
+                                {(Object.keys(data)).length > 0 ?
                                     <form onSubmit={e => handleSubmit(e)}>
                                         {Object.keys(data).map(item => formData(item, typeof data[item]))}
-                                        <button type="submit" className="btn btn-primary">Crear</button>
+                                        <button type="submit" className="btn text-white" style={{margin: "auto",background:"#D64A21",padding: "5px"}}>Crear</button>
                                     </form>
-                                : <div></div> }    
+                                    : <div></div>}
                             </div>
+
                         </div>
-                    </div>) 
-                : window.location.href = 'https://app-restaurante-reactjs.herokuapp.com/login'}
+                    </>
+                )
+                : window.location.href = '/login'}
         </Fragment>
     )
 }
