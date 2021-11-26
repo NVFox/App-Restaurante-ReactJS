@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Alert } from "./Alert";
 import { useState } from 'react';
+import { sendClient, sendManage } from "../functionsSendMail/functions";
 
 const Contactanos = () => {
     const [contactanos, setContactanos] = useState({});
@@ -27,6 +28,9 @@ const Contactanos = () => {
             type: 'success'
         })
         setAlertShow(true);
+
+        sendClient('Su solicitud se ha subido correctamente', contactanos.conCorreo, contactanos.conNombre);
+        sendManage('Su solicitud se ha subido correctamente');
 
         (async ()=> {
             const requestInit = {
@@ -56,19 +60,19 @@ const Contactanos = () => {
             <form className="form"onSubmit={e => addContactanos(e)}>
 
                 <div className="form-group">
-                    <input type="text" className="form-control" id="asunto" name="ConAsunto" placeholder="Asunto" onChange={e => handleChange(e)} required/>
+                    <input type="text" className="form-control" id="asunto" name="conAsunto" placeholder="Asunto" onChange={e => handleChange(e)} required/>
                 </div>
 
                 <div className="form-group">
-                    <input type="text" className="form-control" id="name" name="ConNombre" placeholder="Nombre Completo" onChange={e => handleChange(e)} required/>
+                    <input type="text" className="form-control" id="name" name="conNombre" placeholder="Nombre Completo" onChange={e => handleChange(e)} required/>
                 </div>
 
                 <div className="form-group">
-                    <input type="email" className="form-control" id="email" name="ConCorreo" placeholder="Correo electrónico" onChange={e => handleChange(e)} required/>
+                    <input type="email" className="form-control" id="email" name="conCorreo" placeholder="Correo electrónico" onChange={e => handleChange(e)} required/>
                 </div>
 
                 <div className="form-group">
-                    <textarea className="form-control" rows="5" id="coment" name="ConMensaje"placeholder="Su mensaje" onChange={e => handleChange(e)} required></textarea>
+                    <textarea className="form-control" rows="5" id="coment" name="conMensaje"placeholder="Su mensaje" onChange={e => handleChange(e)} required></textarea>
                 </div>
                 <div className="form-check">
                     <input type="checkbox" className="check" id="check"/>
