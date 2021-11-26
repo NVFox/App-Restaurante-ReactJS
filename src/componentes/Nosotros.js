@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Empleados from "./Empleados";
 import imgoficial from '../img/insumos/restaurante.jpg';
-import img from '../img/insumos/personal1@2x.png';
-import img1 from '../img/insumos/personal2@2x.png';
-import img2 from '../img/insumos/personal3@2x.png';
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Slider from "./Slider";
@@ -11,12 +9,21 @@ import '../css/pagmenu.css';
 
 const Nosotros = () => {
     const [comments, setComments] = useState([])
+    const [empleados, setEmpleados] = useState([])
 
     useEffect(() => {
       (async () => {
         const data = await fetch(`https://app-restaurante-colnodo.herokuapp.com/testimonios`);
         const results = await data.json();
         setComments(results)
+      })()
+    }, [])
+
+    useEffect(() => {
+      (async () => {
+        const data = await fetch(`https://app-restaurante-colnodo.herokuapp.com/empleados`);
+        const results = await data.json();
+        setEmpleados(results)
       })()
     }, [])
 
@@ -43,45 +50,10 @@ const Nosotros = () => {
             </section>
 
             <section className="team">
-                <div className="columna1">
-                    <div className="imgteam">
-                        <img src={img} alt="" />
-                        <p className="cargo">Gerente</p>
-                        <p className="nombre">Grupo 7 </p>
-                    </div>
-
-                    <div className="imgteam">
-                        <img src={img1} alt="" />
-                        <p className="cargo">Asistente T</p>
-                        <p className="nombre">Mariana G</p>
-                    </div>
-
-                    <div className="imgteam">
-                        <img src={img2} alt="" />
-                        <p className="cargo">Asistente 2</p>
-                        <p className="nombre">Vane P</p>
-                    </div>
-                </div>
-
-                <div className="columna1">
-                    <div className="imgteam">
-                        <img src={img2} alt="" />
-                        <p className="cargo">Master</p>
-                        <p className="nombre">Maria Y </p>
-                    </div>
-
-                    <div className="imgteam">
-                        <img src={img} alt="" />
-                        <p className="cargo">Admin</p>
-                        <p className="nombre">Grupo 7</p>
-                    </div>
-
-                    <div className="imgteam">
-                        <img src={img1} alt="" />
-                        <p className="cargo">Coordinadora</p>
-                        <p className="nombre">Fernanda G</p>
-                    </div>
-                </div>
+                 <div className="columna1">
+                    {empleados.length > 0 && empleados.map(item => <Empleados key={item.empId} item={item} />)}
+                 </div>
+                
             </section>
             {comments.length > 0 && 
               <section className="comments">

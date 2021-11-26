@@ -1,0 +1,9 @@
+.contenedor-persona {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.imgEmpleados{
+  width: 150px;
+  height: 150px;
+}
