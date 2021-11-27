@@ -69,7 +69,7 @@ const BuySection = () => {
     
     const DelItem = key => {
         let data = JSON.parse(localStorage.getItem('items'));
-        data = data.filter(item => item.ProId !== key);
+        data = data.filter(item => item.proId !== key);
 
         setLstorage(data);
 
